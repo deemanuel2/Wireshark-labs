@@ -14,36 +14,22 @@ Hands-on Wireshark labs where I investigate network captures as a SOC analyst, t
 # Lab 3: Identify the Attacker's IP
 
 ## Scenario
-A staff member reported unusual traffic to the company's web server. I
-captured the traffic, analysed it in Wireshark, and found out who the
-attacker is and what kind of attack it is.
-
-## Method
-1. Checked the capture size: 309 packets
-2. Filtered pure SYN packets: tcp.flags.syn == 1 && tcp.flags.ack == 0
-3. Used Statistics > Conversations (TCP tab) to see one source sending to
-   many destination ports
-4. Counted the SYN packets from the attacker: 40
-5. Filtered the server's replies to separate open and closed ports:
-   - Open: ip.src == 192.168.10.20 && tcp.flags.syn == 1 && tcp.flags.ack == 1
-   - Closed: ip.src == 192.168.10.20 && tcp.flags.reset == 1
+You are a SOC analyst. A staff member reported unusual traffic to the
+company's web server. I captured the packets and analyzed them in Wireshark
+to find the type of attack and the attacker's IP address.
 
 ## Findings
-- Packets captured: 309
-- Attacker IP: 192.168.10.66
-- Target IP: 192.168.10.20
-- Attacker's source port: 52311 (the same in every packet)
-- Ports probed: 40 different destination ports
-- Open ports: 22, 80, 443 (answered SYN, ACK)
-- Closed ports: 37 (answered RST, ACK)
-- Attack type: port scan
+- Attacker: 192.168.10.66
+- Target: 192.168.10.20
+- Attack type: port scan (one source port, 52311, probing 40 destination ports)
+- Open ports: 22, 80, 443 (SYN, ACK)
+- Closed ports: 37 (RST, ACK)
 
-## Lesson learned
-One source sending SYN packets to many different destination ports on a
-single target is the signature of a port scan. Attackers use it to find open
-services before choosing what to attack. Defenses: firewall rules that drop
-unneeded ports, rate limiting, and an IDS/IPS that alerts on scan patterns.
+## Key filter
+tcp.flags.syn == 1 && tcp.flags.ack == 0
 
-## Screenshots
-(Conversations tab, SYN filter result showing Displayed: 40, SYN-ACK replies,
-RST replies, 10/10 score)
+## Lesson
+One source sending SYNs to many ports on one target is a port scan.
+Defenses: firewall rules, rate limiting, and an IDS/IPS.
+
+![](https://github.com/deemanuel2/Wireshark-labs/blob/8263a8e67f6421996504185ab52fd47c091a176f/Screenshot%202026-11-05%20202051.png)
