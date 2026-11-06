@@ -28,11 +28,11 @@ to find the type of attack and the attacker's IP address.
 ## Key filter
 tcp.flags.syn == 1 && tcp.flags.ack == 0
 
+![](https://github.com/deemanuel2/Wireshark-labs/blob/8263a8e67f6421996504185ab52fd47c091a176f/Screenshot%202026-11-05%20202051.png)
+
 ## Lesson
 One source sending SYNs to many ports on one target is a port scan.
 Defenses: firewall rules, rate limiting, and an IDS/IPS.
-
-![](https://github.com/deemanuel2/Wireshark-labs/blob/8263a8e67f6421996504185ab52fd47c091a176f/Screenshot%202026-11-05%20202051.png)
 
 ---
 
@@ -50,11 +50,40 @@ Follow TCP Stream to read one chat and see what was shared.
 - Conversation size: 413 bytes (4 client packets, 5 server packets, 9 turns)
 - Colors in Follow TCP Stream: red is the client (the PC that started the chat)
 - What was shared: a staff member asking for help with the Finance drive,
-  and passwords shared in plain text (omitted from this write-up)
+  and passwords shared in plain text 
 
 ## Key filter
 tcp.port == 5000
 
+![](https://github.com/deemanuel2/Wireshark-labs/blob/dd656945c38314d7051c656bd4729b3b84ccd844/Screenshot%202026-11-05%20204435.png)
+
 ## Lesson
 Plain text chat tools expose every message to anyone capturing traffic, including
 passwords. Use an encrypted messaging tool (TLS) instead.
+
+# Lab 5: Follow TCP Stream, Part 2
+
+## Scenario
+A staff member browsed the company intranet. An admin thought someone left a
+secret inside one of the web pages. I captured the traffic and used Follow
+TCP Stream to find the hidden text.
+
+## Findings
+- Packets captured: 282 (the http filter showed 30)
+- Pages opened: 5
+- Page with the hidden note: /staff.html
+- Stream: tcp.stream eq 7 (server replied 200 OK)
+- Where it was hidden: an HTML comment, invisible in a browser but plain to
+  see in the stream
+- Direction: server to client (blue text in Follow TCP Stream)
+- The access code word
+- Downloaded text file: /download/report.txt (stream 11), which showed who
+  prepared the report
+
+## Key filter
+http
+
+## Lesson
+Hidden text in a page's source is invisible in the browser but fully readable
+in a capture. Never put secrets or access codes in HTML. Anything the server
+sends can be read by anyone who can capture the traffic.
