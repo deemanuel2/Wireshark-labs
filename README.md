@@ -33,3 +33,28 @@ One source sending SYNs to many ports on one target is a port scan.
 Defenses: firewall rules, rate limiting, and an IDS/IPS.
 
 ![](https://github.com/deemanuel2/Wireshark-labs/blob/8263a8e67f6421996504185ab52fd47c091a176f/Screenshot%202026-11-05%20202051.png)
+
+---
+
+# Lab 4: Follow TCP Stream
+
+## Scenario
+You are a SOC analyst. Your manager says some staff use an old office chat
+tool that sends messages in plain text. I captured the traffic and used
+Follow TCP Stream to read one chat and see what was shared.
+
+## Findings
+- Chat port: TCP 5000 (the rest of the traffic was web on ports 80 and 443)
+- Started by: 192.168.10.45
+- Stream: tcp.stream eq 5
+- Conversation size: 413 bytes (4 client packets, 5 server packets, 9 turns)
+- Colors in Follow TCP Stream: red is the client (the PC that started the chat)
+- What was shared: a staff member asking for help with the Finance drive,
+  and passwords shared in plain text (omitted from this write-up)
+
+## Key filter
+tcp.port == 5000
+
+## Lesson
+Plain text chat tools expose every message to anyone capturing traffic, including
+passwords. Use an encrypted messaging tool (TLS) instead.
