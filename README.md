@@ -1,7 +1,3 @@
-# Wireshark-labs
-
----
-
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,100:00ff9c&height=200&section=header&text=Wireshark%20Labs&fontSize=50&fontColor=ffffff&desc=SOC%20Analyst%20Packet%20Investigations&descSize=18&descAlignY=68" alt="Wireshark Labs banner" />
 </p>
@@ -29,7 +25,6 @@ Hands-on Wireshark labs where I investigate network captures as a SOC analyst, t
 
 ---
 
-
 | Lab | Topic | Key skill |
 |-----|-------|-----------|
 | 03 | Identify the attacker's IP | Spotting a SYN port scan and open/closed ports |
@@ -41,23 +36,14 @@ Hands-on Wireshark labs where I investigate network captures as a SOC analyst, t
 
 ---
 
-
-> Note: all IPs, usernames, and passwords in this repo come from practice lab
-> captures and are not real credentials.
-
----
-
-
 > [!IMPORTANT]
-> **Security & Ethical Use**
-
+> **Security & Ethical Use**  
 > All traffic in this project came from the Networkwalks lab, which uses
 > simulated traffic and fictional users and passwords. I only captured data
 > inside that lab, so the credentials shown are fictional. Do not capture
 > traffic on networks you do not own or have written permission to test.
 
 ---
-
 
 # Lab 3: Identify the Attacker's IP
 
@@ -108,6 +94,8 @@ tcp.port == 5000
 ## Lesson
 Plain text chat tools expose every message to anyone capturing traffic, including
 passwords. Use an encrypted messaging tool (TLS) instead.
+
+---
 
 # Lab 5: Follow TCP Stream, Part 2
 
@@ -213,6 +201,9 @@ FTP sends usernames and passwords in plain text, and the server allowed
 unlimited guesses. Lock accounts or block IPs after repeated failures (for
 example fail2ban), use strong passwords, add MFA where possible, and replace
 FTP with SFTP or FTPS.
+
+
+---
 
 # Lab 8: VoIP Call Replay
 
