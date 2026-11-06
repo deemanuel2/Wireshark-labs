@@ -87,3 +87,31 @@ http
 Hidden text in a page's source is invisible in the browser but fully readable
 in a capture. Never put secrets or access codes in HTML. Anything the server
 sends can be read by anyone who can capture the traffic.
+
+---
+
+# Lab 6: HTTP Plain Text Credentials
+
+## Scenario
+An old staff portal still runs on plain HTTP. I captured the traffic to see
+what a person can read from a sign-in that is not encrypted.
+
+## Findings
+- Packets captured: 255 (http.request showed 13 requests)
+- Protocol: HTTP
+- Method: POST
+- Login page: /login
+- PC that signed in: 192.168.10.45
+- Sign-in attempts: 2 (the second worked, the page said "Welcome back")
+- Username: farhan.k
+- The Password
+- Packet details line: HTML Form URL Encoded, which shows the typed values in
+  clear text
+
+## Key filter
+http.request.method == "POST"
+
+## Lesson
+Credentials sent over HTTP are readable by anyone who can capture the traffic.
+Use HTTPS (TLS) so the form data is encrypted on the wire, redirect HTTP to
+HTTPS, enable HSTS, and add multi-factor authentication.
