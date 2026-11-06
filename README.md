@@ -111,6 +111,8 @@ what a person can read from a sign-in that is not encrypted.
 ## Key filter
 http.request.method == "POST"
 
+![](https://github.com/deemanuel2/Wireshark-labs/blob/94c6276be36aae2dd47c448c3f4bd4f147572d05/Lab_6.png)
+
 ## Lesson
 Credentials sent over HTTP are readable by anyone who can capture the traffic.
 Use HTTPS (TLS) so the form data is encrypted on the wire, redirect HTTP to
