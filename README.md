@@ -112,9 +112,44 @@ what a person can read from a sign-in that is not encrypted.
 http.request.method == "POST"
 
 ![](https://github.com/deemanuel2/Wireshark-labs/blob/94c6276be36aae2dd47c448c3f4bd4f147572d05/Lab_6.png)
+
+---
+
+
 ![](https://github.com/deemanuel2/Wireshark-labs/blob/229f6c07154d2329d124e44f2cd7250cb2591004/Lab_6.2.png)
 
 ## Lesson
 Credentials sent over HTTP are readable by anyone who can capture the traffic.
 Use HTTPS (TLS) so the form data is encrypted on the wire, redirect HTTP to
 HTTPS, enable HSTS, and add multi-factor authentication.
+
+---
+
+# Lab 7: Brute Force Catch
+
+## Scenario
+The FTP server owner reported many failed sign-ins in a short time. I captured
+the traffic to find who was guessing passwords and whether the attacker got in.
+
+## Findings
+- Packets captured: 369 (FTP made up 117, confirmed in Protocol Hierarchy)
+- Protocol: FTP
+- Target (FTP server): 192.168.10.20
+- Attacker: 192.168.10.66
+- Username guessed: admin, with many different passwords
+- Failure code: 530 (Login incorrect)
+- Failed logins: 24
+- Not a failure: 331 ("Please specify the password") is the server asking
+  for the password
+- Success code: 230 (Login successful), so the attacker got in
+- Password that worked: omitted from this write-up
+- Attack type: brute force
+
+## Key filter
+ftp.response.code == 530
+
+## Lesson
+FTP sends usernames and passwords in plain text, and the server allowed
+unlimited guesses. Lock accounts or block IPs after repeated failures (for
+example fail2ban), use strong passwords, add MFA where possible, and replace
+FTP with SFTP or FTPS.
