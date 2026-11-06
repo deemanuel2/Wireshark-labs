@@ -142,14 +142,46 @@ the traffic to find who was guessing passwords and whether the attacker got in.
 - Not a failure: 331 ("Please specify the password") is the server asking
   for the password
 - Success code: 230 (Login successful), so the attacker got in
-- Password that worked: omitted from this write-up
+- Password that worked: Sunshine99
 - Attack type: brute force
 
 ## Key filter
 ftp.response.code == 530
+
+![](https://github.com/deemanuel2/Wireshark-labs/blob/97e9b7b4883b5ca5369528533dc83347338908e7/Lab_7.2.png)
+
+---
+
+![](https://github.com/deemanuel2/Wireshark-labs/blob/97e9b7b4883b5ca5369528533dc83347338908e7/Lab_7.png)
 
 ## Lesson
 FTP sends usernames and passwords in plain text, and the server allowed
 unlimited guesses. Lock accounts or block IPs after repeated failures (for
 example fail2ban), use strong passwords, add MFA where possible, and replace
 FTP with SFTP or FTPS.
+
+# Lab 8: VoIP Call Replay
+
+## Scenario
+A phone call was made through the company VoIP system. I captured the traffic,
+found the call, and played it back to learn what was said.
+
+## Findings
+- Packets captured: 1051
+- Signaling protocol: SIP (call flow: INVITE, 100 Trying, 180 Ringing,
+  200 OK, ACK, then BYE and 200 OK to end the call)
+- Voice protocol: RTP (many small packets, one every 60 ms)
+- Codec: G.711 PCMU (RTP payload type 0)
+- Call: from 192.168.10.45 to 192.168.10.52
+- Caller: Ali Raza
+- Who answered: Sara
+- Playback: RTP Player (Telephony menu)
+- Sensitive data spoken on the call
+
+## Key filter
+sip.Call-ID
+
+## Lesson
+The voice traveled as unencrypted RTP, so anyone who captured the traffic could
+replay the call and hear sensitive details. Use SRTP for the audio, SIP over
+TLS for signaling, and keep voice traffic on a separate VLAN.
