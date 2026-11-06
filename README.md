@@ -83,6 +83,12 @@ TCP Stream to find the hidden text.
 ## Key filter
 http
 
+![](https://github.com/deemanuel2/Wireshark-labs/blob/83875e729e51134331683d459d1d2d9846746961/Lab_5.1.png)
+
+---
+
+![](https://github.com/deemanuel2/Wireshark-labs/blob/83875e729e51134331683d459d1d2d9846746961/Lab_5.png)
+
 ## Lesson
 Hidden text in a page's source is invisible in the browser but fully readable
 in a capture. Never put secrets or access codes in HTML. Anything the server
