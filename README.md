@@ -181,6 +181,12 @@ found the call, and played it back to learn what was said.
 ## Key filter
 sip.Call-ID
 
+![](https://github.com/deemanuel2/Wireshark-labs/blob/29aa25732708778c6e23f3cdc5f4f76d99fdf7e0/Lab_8.png)
+
+---
+
+![](https://github.com/deemanuel2/Wireshark-labs/blob/29aa25732708778c6e23f3cdc5f4f76d99fdf7e0/Lab_8.2.png)
+
 ## Lesson
 The voice traveled as unencrypted RTP, so anyone who captured the traffic could
 replay the call and hear sensitive details. Use SRTP for the audio, SIP over
