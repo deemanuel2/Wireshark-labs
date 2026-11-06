@@ -196,7 +196,7 @@ the traffic to find who was guessing passwords and whether the attacker got in.
 - Not a failure: 331 ("Please specify the password") is the server asking
   for the password
 - Success code: 230 (Login successful), so the attacker got in
-- Password that worked: Sunshine99
+- The Password that worked
 - Attack type: brute force
 
 ## Key filter
