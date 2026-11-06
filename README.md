@@ -48,6 +48,17 @@ Hands-on Wireshark labs where I investigate network captures as a SOC analyst, t
 ---
 
 
+> [!IMPORTANT]
+> **Security & Ethical Use**
+
+> All traffic in this project came from the Networkwalks lab, which uses
+> simulated traffic and fictional users and passwords. I only captured data
+> inside that lab, so the credentials shown are fictional. Do not capture
+> traffic on networks you do not own or have written permission to test.
+
+---
+
+
 # Lab 3: Identify the Attacker's IP
 
 ## Scenario
@@ -234,3 +245,9 @@ sip.Call-ID
 The voice traveled as unencrypted RTP, so anyone who captured the traffic could
 replay the call and hear sensitive details. Use SRTP for the audio, SIP over
 TLS for signaling, and keep voice traffic on a separate VLAN.
+
+---
+
+## Tools & Resources
+- Wireshark 
+- [Networkwalks Wireshark SOC Lab](https://www.networkwalks.com)
