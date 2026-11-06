@@ -112,6 +112,7 @@ what a person can read from a sign-in that is not encrypted.
 http.request.method == "POST"
 
 ![](https://github.com/deemanuel2/Wireshark-labs/blob/94c6276be36aae2dd47c448c3f4bd4f147572d05/Lab_6.png)
+![](https://github.com/deemanuel2/Wireshark-labs/blob/229f6c07154d2329d124e44f2cd7250cb2591004/Lab_6.2.png)
 
 ## Lesson
 Credentials sent over HTTP are readable by anyone who can capture the traffic.
