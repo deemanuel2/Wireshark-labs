@@ -1,5 +1,35 @@
 # Wireshark-labs
+
+---
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,100:00ff9c&height=200&section=header&text=Wireshark%20Labs&fontSize=50&fontColor=ffffff&desc=SOC%20Analyst%20Packet%20Investigations&descSize=18&descAlignY=68" alt="Wireshark Labs banner" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Wireshark-1679A7?style=for-the-badge&logo=wireshark&logoColor=white" />
+  <img src="https://img.shields.io/badge/Role-SOC%20Analyst-0d1117?style=for-the-badge&logo=hackthebox&logoColor=00ff9c" />
+  <img src="https://img.shields.io/badge/Focus-Network%20Security-0d1117?style=for-the-badge&logo=cloudflare&logoColor=F38020" />
+  <img src="https://img.shields.io/badge/Labs-6%20Completed-00ff9c?style=for-the-badge" />
+</p>
+
+<p align="center">
+  🔍 Packet Analysis &nbsp;•&nbsp; 🛡️ Blue Team &nbsp;•&nbsp; 🕵️ Threat Hunting &nbsp;•&nbsp; 🔐 Credential Exposure
+</p>
+
+---
+
+
 Hands-on Wireshark labs where I investigate network captures as a SOC analyst, tracking attackers, hidden data, exposed passwords, and a scam call.
+
+---
+
+## 🛠️ Skills practiced
+`packet analysis` `display filters` `Follow TCP Stream` `HTTP` `FTP` `SIP/RTP` `incident write-ups`
+
+---
+
+
 | Lab | Topic | Key skill |
 |-----|-------|-----------|
 | 03 | Identify the attacker's IP | Spotting a SYN port scan and open/closed ports |
@@ -10,6 +40,13 @@ Hands-on Wireshark labs where I investigate network captures as a SOC analyst, t
 | 08 | VoIP call replay | Decoding SIP and RTP and replaying a call |
 
 ---
+
+
+> Note: all IPs, usernames, and passwords in this repo come from practice lab
+> captures and are not real credentials.
+
+---
+
 
 # Lab 3: Identify the Attacker's IP
 
