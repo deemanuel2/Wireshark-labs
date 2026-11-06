@@ -15,7 +15,16 @@
 
 ---
 
+> [!IMPORTANT]
+> **Security & Ethical Use**  
+> All traffic in this project came from the Networkwalks lab, which uses
+> simulated traffic and fictional users and passwords. I only captured data
+> inside that lab, so the credentials shown are fictional. Do not capture
+> traffic on networks you do not own or have written permission to test.
 
+---
+
+## About
 Hands-on Wireshark labs where I investigate network captures as a SOC analyst, tracking attackers, hidden data, exposed passwords, and a scam call.
 
 ---
@@ -33,15 +42,6 @@ Hands-on Wireshark labs where I investigate network captures as a SOC analyst, t
 | 06 | HTTP plain text credentials | Finding login POSTs in unencrypted traffic |
 | 07 | FTP brute force catch | Spotting failed logins (530) and the success (230) |
 | 08 | VoIP call replay | Decoding SIP and RTP and replaying a call |
-
----
-
-> [!IMPORTANT]
-> **Security & Ethical Use**  
-> All traffic in this project came from the Networkwalks lab, which uses
-> simulated traffic and fictional users and passwords. I only captured data
-> inside that lab, so the credentials shown are fictional. Do not capture
-> traffic on networks you do not own or have written permission to test.
 
 ---
 
@@ -240,5 +240,5 @@ TLS for signaling, and keep voice traffic on a separate VLAN.
 ---
 
 ## Tools & Resources
-- Wireshark 
+- [Wireshark](https://www.wireshark.org) 
 - [Networkwalks Wireshark SOC Lab](https://www.networkwalks.com)
